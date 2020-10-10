@@ -1,0 +1,12 @@
+- hosts: web
+  tasks:
+  - name: uznip
+    yum:
+      name: unzip
+      state: latest
+  - name: unzip file
+    unarchive:
+      src: /var/www/html/vanilla.zip
+      dest: /var/www/html
+      remote_src: yes
+  

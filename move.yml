@@ -1,0 +1,5 @@
+- hosts: web
+  tasks:
+  - name: Move files
+    shell: mv /var/www/html/templatemo_526_vanilla/*  /var/www/html/
+    

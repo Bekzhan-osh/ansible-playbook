@@ -1,0 +1,17 @@
+- hosts: web
+  tasks:
+  - name: Install httpd
+    yum: 
+      name: httpd
+      state: latest
+  - name: Start httpd
+    systemd:
+      name: httpd
+      state: started
+  - name: Enable httpd
+    systemd:
+      name: httpd
+      enabled: yes
+      masked: no
+      
+

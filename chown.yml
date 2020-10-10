@@ -1,0 +1,9 @@
+- hosts: web
+  tasks:
+  - name: Attempt to change ownership on directory
+    file:
+      path: /var/www/html
+      state: directory
+      recurse: yes
+      owner: apache
+      group: apache

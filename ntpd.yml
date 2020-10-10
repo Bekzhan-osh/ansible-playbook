@@ -1,6 +1,27 @@
 - hosts: all
   tasks:
   - name: Install ntpd
-    yum: 
+    package: 
       name: ntp
       state: latest
+  - name: Reconfigure time service
+    lineinfile:
+      path: /etc/ntp.conf
+      regexp: "^server *. iburst$"
+      line: "server pool.ntp.org iburst"
+  - name: Delete unused time servers
+    lineinfile:
+      path: /etc/ntp.conf
+      regexp: "^server [1,2,3].amazon.pool.ntp.org iburst$"
+      state: absent
+    notify: Restart ntpd  
+  - name: start ntpd
+    service:
+      name: ntpd
+      state: restarted
+
+  handlers:
+  - name: Restart ntpd
+    service:
+      name: ntpd
+      state: restarted

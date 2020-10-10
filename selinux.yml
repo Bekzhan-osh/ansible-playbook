@@ -1,0 +1,4 @@
+- hosts: web
+  tasks:
+  - selinux: 
+      state: disabled
