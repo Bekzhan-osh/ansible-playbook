@@ -9,5 +9,10 @@
       name: ntp
       state: restarted
   tasks:
+<<<<<<< HEAD
   - include_tasks: "{{ ansible_os_family }}-ntpd.yml"
   
+=======
+  - include_tasks: hostname.yml
+  hello
+>>>>>>> bba4b327cea97e1b0fb5ae03c66c6761423185dc
