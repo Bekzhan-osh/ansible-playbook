@@ -10,3 +10,4 @@
       state: restarted
   tasks:
   - include_tasks: "{{ ansible_os_family }}-ntpd.yml"
+  
